@@ -1,3 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cu118
+
 tensorflow==2.13
 tensorrt
 numpy
@@ -10,15 +12,14 @@ customtkinter
 tkinterdnd2
 tkinterdnd2-universal
 pillow
-onnxruntime
-onnxruntime-coreml
-onnxruntime-silicon
-onnxruntime-gpu
+onnxruntime==1.15.1; python_version != '3.9' and sys_platform == 'darwin' and platform_machine != 'arm64'
+onnxruntime-coreml==1.13.1; python_version == '3.9' and sys_platform == 'darwin' and platform_machine != 'arm64'
+onnxruntime-silicon==1.13.1; sys_platform == 'darwin' and platform_machine == 'arm64'
+onnxruntime-gpu==1.15.1; sys_platform != 'darwin'
 opennsfw2
 protobuf
 tqdm
 gfpgan
-codeformer
 torch
 basicsr
 filetype
